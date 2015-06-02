@@ -13,5 +13,5 @@ ofxCv (unused)
 ofxGif (unused)
 ofxUI (used)
 ##Screen Shots
-![screenshot1.png](bin/data/images/screenshot1.png)
-![screenshot2.png](bin/data/images/screenshot2.png)
+![screenshot1.png](assets/screenshot1.png)
+![screenshot2.png](assets/screenshot2.png)
