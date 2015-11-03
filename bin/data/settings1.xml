@@ -13,7 +13,7 @@
 <Widget>
     <Kind>2</Kind>
     <Name>Encrypt</Name>
-    <Value>1</Value>
+    <Value>0</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
@@ -23,12 +23,12 @@
 <Widget>
     <Kind>2</Kind>
     <Name>Rainbow</Name>
-    <Value>1</Value>
+    <Value>0</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
     <Name>White</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
@@ -48,7 +48,7 @@
 <Widget>
     <Kind>21</Kind>
     <Name>rotSlide</Name>
-    <Value>0.181889534</Value>
+    <Value>0.124824047</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
@@ -57,7 +57,7 @@
 </Widget>
 <Widget>
     <Kind>22</Kind>
-    <Name>DDL</Name>
+    <Name>INFO</Name>
     <Value>0</Value>
 </Widget>
 <Widget>

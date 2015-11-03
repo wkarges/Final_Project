@@ -97,8 +97,8 @@ void ofApp::draw(){
     
     for(int i = 0; i < wordList.size(); i++) {
         ofMesh tMesh ;
-        if(wordList[i] == "") {
-            wordList[i] = "blank" ;
+        if(wordList[i] == "" || wordList[i] == " = " || wordList[i] == "=") {
+            wordList[i] = "" ;
         }
         //Convert textInput to mesh and add it to tMesh
         tMesh = fontSmall.getStringMesh(wordList[i], ofRandom(-125, 75),ofRandom(-150, 150)) ;
@@ -141,7 +141,7 @@ void ofApp::draw(){
         ofRotate(rot, 0.0, 1.0, 0.0) ; //rotate textMesh with GUI slider
         ofTranslate(0, 0, move) ; //Move the z coordinates of textMesh overTime
         ofTranslate(0,0, tran) ; //Translate textMesh z coordinates with GUI slider
-        //    ofScale(1.0, -1.0, 1.0);
+//      ofScale(1.0, -1.0, 1.0);
         textMesh.draw() ; //draw textMesh
         ofPopMatrix() ;
         fontSmall.unbind() ;
@@ -194,15 +194,15 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
         if(en == true) { //if encode toggle true, b64 encode text input
             encodedText = b64.base64Encode(pText) ;
             encryptedText = encryptedText + b64.base64Encode(pText) ;
-            wordList.push_back(encodedText) ;
+            wordList.push_back(pText + " = " + encodedText) ;
             cout << "text1: " << pText << " encoded: " << encodedText << endl ;
         }
         if(de == true) { //if decode toggle true, b64 decode text input
             deCrypt = b64.base64Decode(pText) ;
             deCrypted = deCrypt + " " + b64.base64Decode(deCrypted) ;
-            if(deCrypt == "") {
-                deCrypt = b64.base64Encode("blank") ;
-            }
+//            if(deCrypt == "") {
+//                deCrypt = b64.base64Encode("blank") ;
+//            }
             wordList.push_back(deCrypt) ;
         }
         else { //if no cryption toggle true, add plain text to wordList
@@ -243,7 +243,7 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
             guic->setVisible(false) ;
         }
     }
-    else if(e.getName() == "DDL") { //Useful Information drop down list
+    else if(e.getName() == "INFO") { //Useful Information drop down list
         ofxUIDropDownList *ddList = (ofxUIDropDownList *) e.widget ;
         vector<ofxUIWidget *> &selected = ddList->getSelected();
         for(int i = 0; i < selected.size(); i++) {
@@ -338,7 +338,7 @@ void ofApp::mainGUI() { //Main GUI controls
     dItems.push_back("Anonymous Browsing") ;
     dItems.push_back("NSA Spying") ;
     dItems.push_back("None") ;
-    gui1->addDropDownList("DDL", dItems);
+    gui1->addDropDownList("INFO", dItems);
     
 //    gui1->addTextArea("EncodedText", "encoded: " + encodedText) ;
     gui1->autoSizeToFitWidgets();
